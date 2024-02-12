@@ -6,6 +6,7 @@ int tankW;
 int tankH;
 
 int fishSize = 15;
+int crabSize = 10;
 
 void setup() {
   size(600, 600);
