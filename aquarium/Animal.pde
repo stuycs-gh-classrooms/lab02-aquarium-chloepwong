@@ -7,10 +7,11 @@ class Animal {
   int w;
   int h;
   
-  Animal(int ax, int ay) {
+  Animal(int ax, int ay, int aw, int ah) {
     x = ax;
     y = ay;
-    w = h = 15;
+    w = aw;
+    h = ah;
     xvelocity = int(pow(-1, int(random(2)))*int(random(1, 3)));
   }
   
@@ -18,13 +19,17 @@ class Animal {
     rect(x, y, w, h);
   }
   
-  void move() {
+  void changeDirection() {
     if (x <= tankX || x+w >= tankX+tankW) {
       xvelocity *= -1;
     }
     if (y <= tankY || y+h >= tankY+tankH-floorH) {
       yvelocity *= -1;
     }
+  }
+  
+  void move() {
+    changeDirection();
     x += xvelocity;
     y += yvelocity;
   }

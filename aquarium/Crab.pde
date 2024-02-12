@@ -4,8 +4,8 @@ class Crab extends Animal {
   int k;
   int a;
   
-  Crab(int cx, int cy) {
-    super(cx, int(random(floorH))+tankH);
+  Crab(int cx, int cy, int cw, int ch) {
+    super(cx, int(random(floorH))+tankH, cw, ch);
     amp = 25;
     k = tankH - int(random(-(floorH-2*amp)/2+h/2, (floorH-2*amp)/2-h/2));
     a = int(pow(-1, int(random(2))));

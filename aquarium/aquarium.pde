@@ -5,6 +5,7 @@ int floorH = 100;
 int tankW;
 int tankH;
 
+int fishSize = 15;
 
 void setup() {
   size(600, 600);
@@ -22,6 +23,11 @@ void draw() {
   t.display();
 }
 
-void mouseClicked() {
-  t.addAnimal(mouseX, mouseY);
+void keyPressed () {
+  if (key == ' ') {
+    t.addAnimal(mouseX, mouseY);
+  }
+  if (key == 'r') {
+    
+  }
 }

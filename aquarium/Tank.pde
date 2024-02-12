@@ -28,11 +28,11 @@ class Tank {
   }
   
   void addAnimal(int mx, int my) {
-    if (my > height-tankH && my < height-floorH-20) {
-      animals.add(new Fish(mx, my));
+    if (my > height-tankH && my < height-floorH-fishSize && mx < tankX+tankW-fishSize && mx > tankX) {
+      animals.add(new Fish(mx, my, fishSize, fishSize));
     }
     else if (my > height-floorH) {
-      animals.add(new Crab(mx, my));
+      animals.add(new Crab(mx, my, 15, 15));
     }
   }
   
