@@ -1,9 +1,9 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/oq20sLQj)
 # Aquarium Lab
-#### Name:
+#### Name: Chloe Wong
 #### TableBuddies+™
-- TB+ 0:
-- TB+ 1:
+- TB+ 0: Michelle Zhu
+- TB+ 1: Orion Xiang
 - TB+ 2:
 
 ---
