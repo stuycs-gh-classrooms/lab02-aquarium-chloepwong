@@ -34,4 +34,14 @@ class Animal {
     y += yvelocity;
   }
   
+  void turn() {
+    int r = int(random(150));
+    if (r == 0) {
+      xvelocity *= -1;
+    }
+    if (r == 1) {
+      yvelocity *= -1;
+    }
+  }
+  
 }
