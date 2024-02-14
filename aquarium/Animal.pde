@@ -32,14 +32,14 @@ class Animal {
     changeDirection();
     x += xvelocity;
     y += yvelocity;
-  }
+  } 
   
   void turn() {
     int r = int(random(150));
-    if (r == 0) {
+    if (r == 0 && x > 0 && x + w < tankX+tankW) {
       xvelocity *= -1;
     }
-    if (r == 1) {
+    if (r == 1 && true && true) {
       yvelocity *= -1;
     }
   }
