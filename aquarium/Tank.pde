@@ -31,7 +31,7 @@ class Tank {
     if (my > height-tankH && my < height-floorH-fishSize && mx < tankX+tankW-fishSize && mx > tankX) {
       animals.add(new Fish(mx, my, fishSize, fishSize));
     }
-    else if (mx > crabSize && my > height-floorH) {
+    else if (mx > crabSize && mx < tankX+tankW-crabSize && my > height-floorH) {
       animals.add(new Crab(mx, my, 15, 15));
     }
   }

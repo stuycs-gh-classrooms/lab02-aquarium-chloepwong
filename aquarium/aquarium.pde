@@ -29,6 +29,8 @@ void keyPressed () {
     t.addAnimal(mouseX, mouseY);
   }
   if (key == 'r') {
-    
+    for (int i = 0; i < t.animals.size(); i++) {
+      t.animals.remove(i);
+    }
   }
 }
