@@ -11,6 +11,8 @@ int crabW = 50;
 int crabH = 35;
 int turtleW = 120;
 int turtleH = 60;
+int jellyfishW = 35;
+int jellyfishH = 45;
 
 void setup() {
   size(600, 600);
@@ -24,7 +26,7 @@ void setup() {
 
 void draw() {
   background(150);
-  t.moveAnimals();
+  t.runAnimals();
   t.display();
 }
 
@@ -37,5 +39,8 @@ void keyPressed () {
   }
   if (key == '3') {
     t.addAnimal(mouseX, mouseY, 3);
+  }
+  if (key == '4') {
+    t.addAnimal(mouseX, mouseY, 4);
   }
 }

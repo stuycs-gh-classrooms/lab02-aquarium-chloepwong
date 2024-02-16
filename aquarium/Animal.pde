@@ -10,6 +10,9 @@ class Animal {
   int h;
   int hunger;
   boolean alive;
+  boolean eater;
+  int loneliness;
+  boolean loner;
   
   Animal(int ax, int ay, int aw, int ah) {
     x = ax;
@@ -30,11 +33,17 @@ class Animal {
   }
   
   void changeDirection() {
-    if (x <= tankX || x+w >= tankX+tankW) {
-      xvelocity *= -1;
+    if (x <= tankX) {
+      xvelocity = 1;
     }
-    if (y <= tankY || y+h >= tankY+tankH-floorH) {
-      yvelocity *= -1;
+    if (x+w >= tankX+tankW) {
+      xvelocity = -1;
+    }
+    if (y <= tankY) {
+      yvelocity = 1;
+    }
+    if (y+h >= tankY+tankH-floorH) {
+      yvelocity = -1;
     }
   }
   
@@ -43,5 +52,43 @@ class Animal {
     x += xvelocity;
     y += yvelocity;
   } 
+  
+  boolean collide(Animal a) {
+    if (a != this && !(a instanceof Turtle)) {
+      return (dist(this.x+this.w/2, this.y+this.h/2, a.x+a.w/2, a.y+a.h/2) <= 50);
+    }  
+    return false;
+  }
+  
+  void eat() {
+    for (int i = 0; i < t.animals.size(); i++) {
+      if (collide(t.animals.get(i)) && t.animals.get(i).alive) {
+        t.animals.get(i).alive = false;
+        hunger = 0;
+      }
+    }
+  }
+  
+  void starve() {
+    hunger += 1;
+    if (hunger >= 1000) {
+      alive = false;
+    }
+  }
+  
+  void makeFriend() {
+    for (int i = 0; i < t.animals.size(); i++) {
+      if (collide(t.animals.get(i)) && t.animals.get(i).alive) {
+        loneliness = 0;
+      }
+    }
+  }
+  
+  void dieAlone() {
+    loneliness += 1;
+    if (loneliness >= 1500) {
+      alive = false;
+    }
+  }
   
 }

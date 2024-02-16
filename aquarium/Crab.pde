@@ -11,6 +11,10 @@ class Crab extends Animal {
     a = int(pow(-1, int(random(2))));
     imgL = loadImage("Crab.png");
     imgR = loadImage("Crab.png");
+    alive = true;
+    eater = false;
+    loner = true;
+    loneliness = 0;
   }
   
   void move() {
@@ -20,5 +24,5 @@ class Crab extends Animal {
     x += xvelocity;
     y = int(a*amp*(sin(radians(x))))+k;
   }
-    
+  
 }

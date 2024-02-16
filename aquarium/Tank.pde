@@ -23,7 +23,9 @@ class Tank {
     rect(x, height-f, w, f);
     fill(255, 0, 255);
     for (int i = 0; i < animals.size(); i++) {
-      animals.get(i).display();
+      if (animals.get(i).alive) {
+        animals.get(i).display();
+      }
     }
   }
   
@@ -49,14 +51,36 @@ class Tank {
         animals.add(new Turtle(mx, my, turtleW, turtleH));
       }
       else if (my > tankY && mx < tankX+tankW-turtleW && mx > tankX) {
-        animals.add(new Turtle(mx, tankY+tankH-floorH-turtleH-1, turtleW, turtleH));
+        animals.add(new Turtle(mx, tankY+tankH-floorH-turtleH, turtleW, turtleH));
+      }
+    }
+    if (type == 4) {
+      if (my > tankY && my < tankY+tankH-floorH-jellyfishH && mx < tankX+tankW-jellyfishW && mx > tankX) {
+        animals.add(new Jellyfish(mx, my, jellyfishW, jellyfishH));
+      }
+      else if (my > tankY && mx < tankX+tankW-jellyfishW && mx > tankX) {
+        animals.add(new Jellyfish(mx, tankY+tankH-floorH-jellyfishH, jellyfishW, jellyfishH));
       }
     }
   }
   
-  void moveAnimals() {
+  void runAnimals() {
     for (int i = 0; i < animals.size(); i++) {
-      animals.get(i).move();
+      if (animals.get(i).alive) {
+        animals.get(i).move();
+      }
+    }
+    for (int i = 0; i < animals.size(); i++) {
+      if (animals.get(i).alive && animals.get(i).eater) {
+        animals.get(i).eat();
+        animals.get(i).starve();
+      }
+    }
+    for (int i = 0; i < animals.size(); i++) {
+      if (animals.get(i).alive && animals.get(i).loner) {
+        animals.get(i).makeFriend();
+        animals.get(i).dieAlone();
+      }
     }
   }
   
