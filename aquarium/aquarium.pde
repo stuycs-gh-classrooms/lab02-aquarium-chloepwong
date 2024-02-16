@@ -5,9 +5,12 @@ int floorH = 100;
 int tankW;
 int tankH;
 
-int fishSize = 15;
+int fishW = 50;
+int fishH = 30;
 int crabW = 50;
 int crabH = 35;
+int turtleW = 120;
+int turtleH = 60;
 
 void setup() {
   size(600, 600);
@@ -31,5 +34,8 @@ void keyPressed () {
   }
   if (key == '2') {
     t.addAnimal(mouseX, mouseY, 2);
+  }
+  if (key == '3') {
+    t.addAnimal(mouseX, mouseY, 3);
   }
 }

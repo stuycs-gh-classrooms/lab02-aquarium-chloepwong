@@ -1,5 +1,7 @@
 class Animal {
   
+  PImage imgL;
+  PImage imgR;
   int x;
   int y;
   int xvelocity;
@@ -7,6 +9,7 @@ class Animal {
   int w;
   int h;
   int hunger;
+  boolean alive;
   
   Animal(int ax, int ay, int aw, int ah) {
     x = ax;
@@ -14,10 +17,16 @@ class Animal {
     w = aw;
     h = ah;
     xvelocity = int(pow(-1, int(random(2)))*int(random(1, 3)));
+    alive = true;
   }
-  
+     
   void display() {
-    rect(x, y, w, h);
+    if (xvelocity < 0) {
+      image(imgL, x, y, w, h);
+    }
+    else {
+      image(imgR, x, y, w, h);
+    }
   }
   
   void changeDirection() {
@@ -34,15 +43,5 @@ class Animal {
     x += xvelocity;
     y += yvelocity;
   } 
-  
-  void turn() {
-    int r = int(random(150));
-    if (r == 0 && x > 0 && x + w < tankX+tankW) {
-      xvelocity *= -1;
-    }
-    if (r == 1 && y > tankY && y + h < tankY+tankH-floorH) {
-      yvelocity *= -1;
-    }
-  }
   
 }
