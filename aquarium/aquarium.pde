@@ -6,7 +6,8 @@ int tankW;
 int tankH;
 
 int fishSize = 15;
-int crabSize = 10;
+int crabW = 50;
+int crabH = 35;
 
 void setup() {
   size(600, 600);
@@ -25,12 +26,10 @@ void draw() {
 }
 
 void keyPressed () {
-  if (key == ' ') {
-    t.addAnimal(mouseX, mouseY);
+  if (key == '1') {
+    t.addAnimal(mouseX, mouseY, 1);
   }
-  if (key == 'r') {
-    for (int i = 0; i < t.animals.size(); i++) {
-      t.animals.remove(i);
-    }
+  if (key == '2') {
+    t.addAnimal(mouseX, mouseY, 2);
   }
 }

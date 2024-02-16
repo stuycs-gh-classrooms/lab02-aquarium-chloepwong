@@ -6,6 +6,7 @@ class Animal {
   int yvelocity;
   int w;
   int h;
+  int hunger;
   
   Animal(int ax, int ay, int aw, int ah) {
     x = ax;
@@ -39,7 +40,7 @@ class Animal {
     if (r == 0 && x > 0 && x + w < tankX+tankW) {
       xvelocity *= -1;
     }
-    if (r == 1 && true && true) {
+    if (r == 1 && y > tankY && y + h < tankY+tankH-floorH) {
       yvelocity *= -1;
     }
   }
